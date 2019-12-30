@@ -1,0 +1,78 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\User;
+use App\Categoria;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+
+class AdministradorController extends Controller
+{
+    public function index(){
+        $usuarios = User::paginate(5);
+
+        return view('admin.listadoAdmin', compact('usuarios'));
+    }
+
+    public function create(){
+        return view('admin.userscreate');
+    }
+
+    public function store(Request $request){
+        $user = new User($request->all());
+        $user->password = Hash::make($request['password']);
+        $user->save();
+
+        return redirect('/Administradores');
+    }
+
+    public function destroy($id){
+        $producto = User::find($id);
+        $producto->delete();
+
+        return redirect('/Administradores');
+    }
+
+    public function edit($id){
+        $user = User::find($id);
+        return view('admin.editarUsuario', compact('user'));
+    }
+
+    public function update(Request $request){
+        $user = User::find($request->id);
+
+        $user->name = $request->name;
+        $user->surname = $request->surname;
+        $user->email = $request->email;
+        $user->dni = $request->dni;
+        $user->rol = $request->rol;
+
+        $user->save();
+
+        return redirect('/Administradores');
+    }
+
+    public function categoria(){
+        return view('admin.crearCategoria');
+    }
+
+    public function guardarCategoria(Request $request){
+      $rules = [
+        'nombre' => 'required|max:50',
+      ];
+
+      $this->validate($request, $rules);
+
+      $categoriaNueva = new Categoria();
+
+      $categoriaNueva->name = $request['name'];
+
+      $categoriaNueva->save();
+
+
+      return redirect('/Administradores');
+    }
+
+}

@@ -8,4 +8,5 @@ class Producto extends Model
 {
     public $table = 'productos';
     public $guarded = [];
+
 }

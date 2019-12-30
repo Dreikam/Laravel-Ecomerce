@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.principal')
 
-@section('content')
+@section('contenido')
   <h3>Editar Producto:</h3>
 
   <form class="" action="/editarProducto" method="post" enctype="multipart/form-data">
@@ -19,7 +19,7 @@
       <input type="number" name="precio" value="{{$producto->precio}}">
     </div>
     <div class="">
-      <label for="nombre">Descripcion:</label>
+      <label for="descripcion">Descripcion:</label>
       <textarea name="descripcion" rows="8" cols="80" value="{{$producto->descripcion}}"></textarea>
     </div>
     <div class="">

@@ -23,14 +23,6 @@ body{
 }
 
 
-.login-box .logooo{
-  width: 40px;
-  height: 50px;
-  position: absolute;
-  top: 4px;
-  left: 83%;
-  border-radius: 8px;
-}
 
 
 .login-box h1{
@@ -41,19 +33,20 @@ body{
   text-align: center;
 }
 
-.login-box label{
+.formBox label{
   margin: 0;
   padding: 0;
   font-weight: bold;
   display: block;
-  color: #976E59
+  color: #976E59;
+  display: inline-block;
 }
 .login-box input{
   width: 100%;
   margin-bottom: 20px;
 }
 
-.login-box input[type="email"], .login-box input[type="password"], .login-box input[type="text"], .login-box input[type="number"] {
+.productoNombre input[type="text"], .productoPrecio input[type="number"] {
   border: none;
   border-bottom: 1px solid black;
   background: transparent;
@@ -119,7 +112,6 @@ body{
   color: #976E59;
 }
 .formBox{
-  background-color: white;
   padding: 5%;
 }
 .register .pasin{
@@ -138,18 +130,6 @@ small{
   width: 5%;
 }
 
-/* #file-preview-zone img{
-  width: 86px;
-  margin-bottom: 2%;
-} */
-
-
-.logo{
-  border-radius: 100px;
-  width: 50px;
-  height: 50px;
-  margin-left: 45%;
-}
 .cajaa{
   border-radius: 30px;
   padding: 30px;
@@ -230,11 +210,6 @@ small{
 
 @media (max-width: 1024px) {
 body {
-}
-.logo{
-    width: 100px;
-    height: 100px;
-    margin: 0px;
 }
 .cajaa {
     width: 100%;
@@ -526,4 +501,82 @@ width:
 
 .navI ul li a .quinto{
     background: lightblue;
+}
+
+
+/* cambiar */
+.productoAgregar{
+    background: white;
+    border-radius: 25px;
+    width: 90%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.productoFotos{
+    width: 100px;
+}
+
+.productoEncontrado{
+    background: white;
+    border-radius: 25px;
+    max-width: 1200px;
+    width: 90%;
+    padding-bottom: 1%;
+}
+
+
+.productoDetalle{
+    margin: 0 auto;
+    width: 90%;
+}
+
+.bot button[type="submit"]{
+    border: none;
+        outline: none;
+        height: 40px;
+        background: #976E59;
+        border-radius: 20px;
+        color: white;
+        font-size: 1rem;
+        margin: auto;
+        width: 50%;
+        display: block;
+}
+
+.bot button[type="submit"]:hover{
+  background: red;
+}
+
+#file-preview-zone img{
+  width: 86px;
+  margin-bottom: 2%;
+}
+
+.descripcionproduct{
+    min-width: 300px;
+    max-width: 90%;
+    min-height: 200px;
+    max-height: 200px;
+    padding: 1%;
+}
+
+.row{
+    margin-bottom: 3%;
+}
+
+.product-block{
+    background: white;
+    border-radius: 1em;
+    padding: 1em;
+}
+
+.product-block img{
+    width: 100%;
+}
+
+.product-image{
+    margin-bottom: 1%;
 }
