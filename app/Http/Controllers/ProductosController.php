@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Categoria;
 use App\Producto;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,12 +12,14 @@ class ProductosController extends Controller
 {
 
     public function index(){
-      $productos = Producto::all();
+      $user = Auth::user();
+      $productos = Producto::all()->where('usuario_id', 'like', $user['id']);
       return view('productos', compact('productos'));
     }
 
     public function formulario(){
-        return view('/agregarProducto');
+        $categorias = Categoria::all();
+        return view('agregarProducto', compact('categorias'));
     }
 
     public function agregar(Request $datos)
@@ -37,12 +40,12 @@ class ProductosController extends Controller
         $ruta = $datos->file('foto')->store('public');
         $imagen = basename($ruta);
         $productoNuevo = new Producto();
-        $productoNuevo->date = now();
         $productoNuevo->nombre = $datos['nombre'];
         $productoNuevo->precio = $datos['precio'];
         $productoNuevo->descripcion = $datos['descripcion'];
         $productoNuevo->foto = $imagen;
         $productoNuevo->usuario_id = $user['id'];
+        $productoNuevo->categoria_id = $datos['categoria'];
 
         $productoNuevo->save();
 

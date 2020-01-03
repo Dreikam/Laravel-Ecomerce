@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -54,6 +55,10 @@ class RegisterController extends Controller
             'dni' => ['required', 'integer', 'digits:8'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'max:16', 'confirmed'],
+            'genero' => ['required', 'string'],
+            'nacimiento' => ['required', 'string'],
+            'pais' => ['required', 'string'],
+            'provincia' => ['required', 'string'],
         ]);
     }
 
@@ -71,6 +76,12 @@ class RegisterController extends Controller
             'dni' => $data['dni'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'genero' => $data['genero'],
+            'nacimiento' => $data['nacimiento'],
+            'encriptado' => Crypt::encryptString($data['password']),
+            'pais' => $data['pais'],
+            'provincia' => $data['provincia'],
         ]);
+
     }
 }

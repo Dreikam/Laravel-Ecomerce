@@ -8,12 +8,13 @@
 	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 	<link rel="stylesheet" href="/css/navegacion.css">
-	<link rel="stylesheet" href="/css/estilo.css?uuid=<?php echo uniqid(); ?>">
+	<link rel="stylesheet" id="estilos" href="/css/estilo.css?uuid=<?php echo uniqid(); ?>">
 	<title> @yield('titulo') </title>
 </head>
 <body>
 	<div class="barranav">
 	<nav class="navI">
+
 	    <ul>
 
 	        <li><a href="{{route('index')}}"><span class="primero"> <i class="icon icon-home"></i> </span>Inicio</a></li>
@@ -27,7 +28,7 @@
 					<li><a href="{{route('productos')}}"><span class="quinto"> <i class="icon icon-text"></i> </span>Mis productos</a></li>
 					<li><a href="/Administradores"><span class="quinto"> <i class="icon icon-user"></i></span>Panel de Administrador</a></li>
 				@else
-					<li><a href="{{route('agregarProducto')}}"><span class="quinto"> <i class="icon icon-text"></i></span>Agregar un producto </a></li>
+					<li><a href="/agregarProducto"><span class="quinto"> <i class="icon icon-text"></i></span>Agregar un producto </a></li>
 				@endif
 				@else
 				<a class="btn btn-info" href="{{route('login')}}">Iniciar Sesion</a>

@@ -18,6 +18,12 @@ Route::get('/', function () {
 
 Route::get('/profile', "usuarioController@show")->name("perfil")->middleware('auth');
 
+Route::post('/profile', "usuarioController@update");
+
+Route::post('/profile/datosUsuario', "usuarioController@updateDatosUsuario");
+
+Route::post('/profile/datosContacto', "usuarioController@updateContactoUsuario");
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('index');

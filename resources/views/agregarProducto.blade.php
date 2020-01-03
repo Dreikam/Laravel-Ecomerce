@@ -27,6 +27,14 @@ Bierful | Agregar Producto
       <label for="precio">Precio:</label>
       <input type="number" name="precio" value="{{old('precio')}}">
     </div>
+    <div class="productoCategoria">
+      <label for="categoria">Categoria:</label>
+      <select name="categoria">
+        @foreach ($categorias as $categoria)
+          <option value="{{$categoria->id}}">{{$categoria->name}}</option>
+        @endforeach
+      </select>
+    </div>
 </div>
     <div class="productoDescripcion">
       <label for="descripcion">Descripcion:</label>

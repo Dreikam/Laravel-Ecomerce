@@ -7,6 +7,13 @@
 body{
   background: url("../img/bg-default.jpg");
   background-size: cover;
+  max-width: 98%;
+  margin: auto;
+}
+
+body footer{
+    background: grey;
+    border-radius: 25px;
 }
 
 
@@ -551,8 +558,10 @@ width:
 }
 
 #file-preview-zone img{
-  width: 86px;
-  margin-bottom: 2%;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
 }
 
 .descripcionproduct{
@@ -579,4 +588,19 @@ width:
 
 .product-image{
     margin-bottom: 1%;
+}
+
+.botones a{
+  margin: 0;
+}
+
+.contenedorPrincipal{
+    border-radius: 10px;
+}
+
+.contenedorPrincipal img{
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
 }

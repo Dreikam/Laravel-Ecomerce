@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Producto;
 use App\Categoria;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -29,8 +30,8 @@ class AdministradorController extends Controller
     }
 
     public function destroy($id){
-        $producto = User::find($id);
-        $producto->delete();
+        $user = User::find($id);
+        $user->delete();
 
         return redirect('/Administradores');
     }
@@ -60,14 +61,14 @@ class AdministradorController extends Controller
 
     public function guardarCategoria(Request $request){
       $rules = [
-        'nombre' => 'required|max:50',
+        'name' => 'required|max:50',
       ];
 
       $this->validate($request, $rules);
 
       $categoriaNueva = new Categoria();
 
-      $categoriaNueva->name = $request['name'];
+      $categoriaNueva->name = $request->name;
 
       $categoriaNueva->save();
 
