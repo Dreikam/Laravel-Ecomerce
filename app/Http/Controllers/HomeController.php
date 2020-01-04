@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Categoria;
+use App\Producto;
 
 class HomeController extends Controller
 {
@@ -29,6 +31,17 @@ class HomeController extends Controller
     public function faq()
     {
         return view('FAQ');
+    }
+
+    public function todasCategorias(){
+        $categorias = Categoria::all();
+        return view('categorias', compact('categorias'));
+    }
+
+    public function detalleCategoria($id){
+        $categoria = Categoria::find($id);
+        $productoCategoria = Producto::all()->where('categoria_id', 'like', $id);
+        return view('detallecategorias', compact('categoria', 'productoCategoria'));
     }
 
 }

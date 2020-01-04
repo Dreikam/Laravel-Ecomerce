@@ -2,7 +2,7 @@
 
 @section('contenido')
 <div class="container">
-  
+
 <div class="separador">
   <div class="row">
       <div class="col-md-6">

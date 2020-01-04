@@ -31,7 +31,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->string('avatar')->nullable();
             $table->string('encriptado');
-            $talbe->string('pais');
+            $table->string('pais');
             $table->string('provincia');
         });
     }

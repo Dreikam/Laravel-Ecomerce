@@ -36,7 +36,13 @@
                         <span class="badge badge-info">Miembro Comun</span>
                         @endif
                     </td>
-                    <td><a href="/Administradores/{{$user->id}}/editar" class="btn btn-warning">Editar</a> <a href="/Administradores/usuarios/{{$user->id}}/destroy" class="btn btn-danger">Eliminar</a></td>
+                    <td>
+                        @if ($user->id == Auth::user()->id)
+                            <span class="badge badge-success">Eres Tu ;)</span>
+                            @else
+                            <a href="/Administradores/{{$user->id}}/editar" class="btn btn-warning">Editar</a> <a href="/Administradores/usuarios/{{$user->id}}/destroy" class="btn btn-danger">Eliminar</a>    
+                        @endif
+                    </td>
                 </tr>
             @endforeach
         </tbody>

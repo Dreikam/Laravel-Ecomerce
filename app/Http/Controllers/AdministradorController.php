@@ -6,11 +6,19 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Producto;
 use App\Categoria;
+use App\subCategoria;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
 
 class AdministradorController extends Controller
 {
+
+     public function __construct()
+     {
+        $this->middleware('admin');
+     }
+
     public function index(){
         $usuarios = User::paginate(5);
 
@@ -24,6 +32,9 @@ class AdministradorController extends Controller
     public function store(Request $request){
         $user = new User($request->all());
         $user->password = Hash::make($request['password']);
+        $user->encriptado = Crypt::encryptString($request->password);
+
+        //dd($user);
         $user->save();
 
         return redirect('/Administradores');
@@ -55,7 +66,7 @@ class AdministradorController extends Controller
         return redirect('/Administradores');
     }
 
-    public function categoria(){
+    public function crearcategoria(){
         return view('admin.crearCategoria');
     }
 
@@ -75,5 +86,6 @@ class AdministradorController extends Controller
 
       return redirect('/Administradores');
     }
+
 
 }

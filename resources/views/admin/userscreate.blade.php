@@ -8,7 +8,7 @@
     </head>
     <body>
         <form class="" action="/Administradores/crear" method="post">
-        {{csrf_field()}}
+        @csrf
 
             <div class="form-group">
                 <label for="name">Nombre</label>
@@ -31,6 +31,29 @@
             </div>
 
             <div class="form-group">
+                <label class="" for="">Fecha de nacimiento:</label>
+                <input class="form-control" type="date" value="" name="nacimiento">
+            </div>
+            <div class="form-group">
+                <label for="pais">Selecciona Tu Pais:</label>
+                <select class="form-control" id="selecPais" name="pais">
+                </select>
+            </div>
+
+            <div id="PROVar" class="form-group">
+
+            </div>
+
+            <div class="form-group">
+                <label class="" for="genero">Género:</label>
+                <select class="form-control" name="genero" >
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Otro">Otro</option>
+                </select>
+            </div>
+
+            <div class="form-group">
                 <label for="password">Contraseña</label>
                 <input class="form-control" type="password" name="password" value="" required>
             </div>
@@ -50,6 +73,7 @@
         </form>
 
 
+        <script type="application/javascript" src="/js/admin.js"></script>
 
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 

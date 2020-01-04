@@ -24,6 +24,10 @@ Route::post('/profile/datosUsuario', "usuarioController@updateDatosUsuario");
 
 Route::post('/profile/datosContacto', "usuarioController@updateContactoUsuario");
 
+Route::get('/Categorias', 'HomeController@todasCategorias')->name('categorias');
+
+Route::get('/Categorias/{id}', 'HomeController@detalleCategoria')->name('detallecategorias');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('index');
@@ -55,6 +59,6 @@ Route::put('/Administradores', 'AdministradorController@update');
 
 Route::get('/Administradores/usuarios/{id}/destroy', 'AdministradorController@destroy');
 
-Route::get('/Administradores/nuevaCategoria', 'AdministradorController@categoria')->name('admin.crearCategoria');
+Route::get('/Administradores/nuevaCategoria', 'AdministradorController@crearcategoria')->name('admin.crearCategoria');
 
 Route::post('/Administradores/nuevaCategoria', 'AdministradorController@guardarCategoria');

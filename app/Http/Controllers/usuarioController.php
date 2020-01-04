@@ -26,27 +26,53 @@ class usuarioController extends Controller
         $user = User::find($request->id);
         $userLog = Auth::user();
 
-        if ($userLog->avatar == false) {
-            $user->name = $request->name;
-            $user->surname = $request->surname;
-            $user->email = $request->email;
-            $user->password = Hash::make($request['password']);
-            $user->encriptado = Crypt::encryptString($request->password);
-            $user->domicilio = $userLog->domicilio;
-            $user->celular = $userLog->celular;
-            $user->telefono = $userLog->telefono;
-            $user->avatar = NULL;
+        if ($request->avatar == false) {
+            if ($userLog->avatar == false) {
+                $user->name = $request->name;
+                $user->surname = $request->surname;
+                $user->email = $request->email;
+                $user->password = Hash::make($request['password']);
+                $user->encriptado = Crypt::encryptString($request->password);
+                $user->domicilio = $userLog->domicilio;
+                $user->celular = $userLog->celular;
+                $user->telefono = $userLog->telefono;
+                $user->avatar = NULL;
+            } else {
+                $user->name = $request->name;
+                $user->surname = $request->surname;
+                $user->email = $request->email;
+                $user->password = Hash::make($request['password']);
+                $user->encriptado = Crypt::encryptString($request->password);
+                $user->domicilio = $userLog->domicilio;
+                $user->celular = $userLog->celular;
+                $user->telefono = $userLog->telefono;
+                $user->avatar = $userLog->avatar;
+            }
         } else {
-            $user->name = $request->name;
-            $user->surname = $request->surname;
-            $user->email = $request->email;
-            $user->password = Hash::make($request['password']);
-            $user->encriptado = Crypt::encryptString($request->password);
-            $user->domicilio = $userLog->domicilio;
-            $user->celular = $userLog->celular;
-            $user->telefono = $userLog->telefono;
-            $user->avatar = $userLog->avatar;
+            if ($userLog->avatar == false) {
+                $user->name = $request->name;
+                $user->surname = $request->surname;
+                $user->email = $request->email;
+                $user->password = Hash::make($request['password']);
+                $user->encriptado = Crypt::encryptString($request->password);
+                $user->domicilio = $userLog->domicilio;
+                $user->celular = $userLog->celular;
+                $user->telefono = $userLog->telefono;
+                $user->avatar = NULL;
+            } else {
+                $user->name = $request->name;
+                $user->surname = $request->surname;
+                $user->email = $request->email;
+                $user->password = Hash::make($request['password']);
+                $user->encriptado = Crypt::encryptString($request->password);
+                $user->domicilio = $userLog->domicilio;
+                $user->celular = $userLog->celular;
+                $user->telefono = $userLog->telefono;
+                $user->avatar = $request->avatar;
+            }
         }
+
+
 
         // dd($user);
         $user->save();
@@ -87,7 +113,7 @@ class usuarioController extends Controller
 
         return redirect('/profile');
     }
-    // 
+    //
     // public function updateFotoUsuario(Request $request){
     //     $user = User::find($request->id);
     //     $userLog = Auth::user();

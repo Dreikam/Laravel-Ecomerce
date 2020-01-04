@@ -558,8 +558,9 @@ width:
 }
 
 #file-preview-zone img{
-    width: 250px;
-    display: flex;
+    max-width: 250px;
+    max-height: 250px;
+     display: flex;
     justify-content: center;
     margin-bottom: 0.5rem;
 }
