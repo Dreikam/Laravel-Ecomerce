@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -72,3 +72,20 @@ Route::get('/Administradores/nuevaCategoria', 'AdministradorController@crearcate
 Route::get('/Administradores/productos', 'AdministradorController@prod')->name('admin.adminproductos');
 
 Route::post('/Administradores/nuevaCategoria', 'AdministradorController@guardarCategoria');
+
+// Ruta de compra
+Route::get('/compra', function(){
+    return redirect('/home');
+});
+
+Route::post('/compra', 'usuarioController@comprar');
+
+if (Auth::user() == true) {
+    Route::get('/comprado', function(){
+        return view('comprado');
+    });
+} else {
+    Route::get('/comprado', function(){
+        return redirect('/home');
+    });
+}

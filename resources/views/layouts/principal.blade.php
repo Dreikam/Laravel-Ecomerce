@@ -119,6 +119,10 @@
 
 	</footer>
 
+
+	<script type="application/javascript" src="/js/detallefoto.js"></script>	
+	<script src="/js/mostrarocultar.js" type="application/javascript"> </script>
+	<script src="/js/sweetalert2.js" type="application/javascript"> </script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

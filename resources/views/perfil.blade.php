@@ -27,7 +27,15 @@
                                 <input type="hidden" name="id" value="{{$user->id}}">
                                 <div class="row">
                                     <label for="avatar">Foto de perfil:</label>
-                                    <input type="file" accept="image/*" name="avatar" value="">
+                                    <div class="">
+                                        <div id="divFileUpload">
+                                          <input id="file-upload" type="file" accept="image/*" name="avatar" required>
+                                        </div>
+                                      <div id="divInputLoad">
+                                            <div id="file-preview-zone">
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-sm-12 col-md-6 col-lg-8">
                                         <div class="row">
                                             <div class="col-sm-12 col-lg-6">
@@ -53,13 +61,12 @@
                                             </div>
                                             <div class="col-sm-12 col-lg-6">
                                                 <label class="col-form-label-sm" for="password">Contraseña:</label>
-                                                <input class="form-control" type="password" value="{{$desencriptado}}" name="password">
+                                                <input id="password" class="form-control" type="password" value="{{$desencriptado}}" name="password">
+                                                <input type="button" id="b1" class="btn btn-outline-secondary" value="Mostrar contraseña" onclick="mostrar()">
+                                                <input type="hidden" id="b2" class="btn btn-outline-secondary" value="Ocultar contraseña" onclick="ocultar()">
                                                 @if ($errors->password)
                                                 <p class="text-danger small">{{$errors->first('password')}}</p>
                                                 @endif
-                                            </div>
-                                            <div class="">
-
                                             </div>
 
                                         </div>
@@ -110,7 +117,28 @@
 
                         <div role="tabpanel" class="tab-pane" id="seccion3">
                             <h3>Historial de compra</h3>
+
+                            <table class="table table-striped">
+                                <thead>
+                                    <th>Foto del producto</th>
+                                    <th>Nombre del producto</th>
+                                    <th>Precio</th>
+                                    <th>Accion</th>
+                                </thead>
+                                <tbody>
+                                    {{-- @foreach ($productos as $producto)
+                                        <tr>
+                                            <td>{{$producto->foto}}</td>
+                                            <td>{{$producto->nombre}}</td>
+                                            <td>{{number_format($producto->precio,2)}}</td>
+                                            <a href="/detalleProducto/{{$producto->id}}" class="btn btn-outline-secondary">Ver Producto</a>
+                                        </tr>
+                                    @endforeach --}}
+                                </tbody>
+                            </table>
                         </div>
+
+
                     </div>
 
                 </div>

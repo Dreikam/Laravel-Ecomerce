@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Crypt;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Compra;
+use App\Producto;
 
 class usuarioController extends Controller
 {
@@ -22,12 +24,23 @@ class usuarioController extends Controller
        return view('perfil', compact('desencriptado', 'user'));
     }
 
+    public function comprar(Request $request){
+        $usuario = User::find($request->usuarioid);
+        $producto = Producto::find($request->productoid);
+
+        $compra = new Compra();
+
+        $compra['usuario_id'] = $usuario->id;
+        $compra['producto_id'] = $producto->id;
+
+        $compra->save();
+
+        return view('comprado', compact('usuario', 'producto'));
+    }
+
     public function updateDatosUsuario(Request $request){
         $user = User::find($request->id);
         $userLog = Auth::user();
-
-        $ruta = $request->file('avatar')->store('public');
-        $avatar = basename($ruta);
 
         if ($request->avatar == false) {
             if ($userLog->avatar == false) {
@@ -52,6 +65,9 @@ class usuarioController extends Controller
                 $user->avatar = $userLog->avatar;
             }
         } else {
+                $ruta = $request->file('avatar')->store('public');
+                $avatar = basename($ruta);
+
                 $user->name = $request->name;
                 $user->surname = $request->surname;
                 $user->email = $request->email;
@@ -60,7 +76,7 @@ class usuarioController extends Controller
                 $user->domicilio = $userLog->domicilio;
                 $user->celular = $userLog->celular;
                 $user->telefono = $userLog->telefono;
-                $user->avatar = $request->avatar;
+                $user->avatar = $avatar;
 
         }
 
@@ -76,10 +92,6 @@ class usuarioController extends Controller
         $user = User::find($request->id);
         $userLog = Auth::user();
         $contrasenia = Crypt::decryptString(Auth::user()->encriptado);
-
-        $ruta = $request->file('avatar')->store('public');
-        $avatar = basename($ruta);
-
 
         if ($userLog->avatar == false) {
             $user->name = $userLog->name;
@@ -108,26 +120,4 @@ class usuarioController extends Controller
 
         return redirect('/profile');
     }
-    //
-    // public function updateFotoUsuario(Request $request){
-    //     $user = User::find($request->id);
-    //     $userLog = Auth::user();
-    //     $contrasenia = Crypt::decryptString(Auth::user()->encriptado);
-    //
-    //
-    //     $user->name = $userLog->name;
-    //     $user->surname = $userLog->surname;
-    //     $user->email = $userLog->email;
-    //     $user->password = Hash::make($userLog['password']);
-    //     $user->encriptado = Crypt::encryptString($contrasenia);
-    //     $user->domicilio = $userLog->domicilio;
-    //     $user->celular = $userLog->celular;
-    //     $user->telefono = $userLog->telefono;
-    //     $user->avatar = $request->avatar;
-    //
-    //     //dd($user);
-    //     $user->save();
-    //
-    //     return redirect('/profile');
-    // }
 }

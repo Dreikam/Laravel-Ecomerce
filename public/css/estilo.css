@@ -146,7 +146,7 @@ small{
   padding: 30px;
   border: 5px ;
   margin-top: 10px;
-  margin-botton: 10px;
+  margin-bottom: 10px;
   background-color: #ffffffde;
 }
 .cajac{
@@ -599,6 +599,7 @@ width:
     display: flex;
     justify-content: center;
     margin-bottom: 0.5rem;
+    border-radius: 40px;
 }
 
 .iconopago {
@@ -688,4 +689,19 @@ width:
     margin-left: 15px;
     transition: all .3s;
 
+}
+
+.body-extends{
+    display: block;
+    margin: auto;
+}
+
+.white {
+    height: 50%;
+    background: white;
+    border-radius: 25px;
+}
+
+.body-extends span{
+    margin: 15px auto;
 }

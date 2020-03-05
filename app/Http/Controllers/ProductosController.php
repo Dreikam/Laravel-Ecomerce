@@ -68,7 +68,8 @@ class ProductosController extends Controller
 
     public function detalle($id){
       $producto = Producto::find($id);
-      return view('detalleProducto', compact('producto'));
+      $usuario = Auth::user();
+      return view('detalleProducto', compact('producto', 'usuario'));
     }
 
     public function editar($id){

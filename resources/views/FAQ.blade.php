@@ -38,16 +38,5 @@
     <p>Por medio privado.</p>
 </ul>
 </article>
-<div class= "cajac">
-
-    <a href="{{route('index')}}">Volver Al inicio</a>
-    <footer>
-
-
-      <span>Copyright (c) 2019 Copyright Holder All Rights Reserved.</span>
-
-
-    </footer>
-</div>
 
 @endsection

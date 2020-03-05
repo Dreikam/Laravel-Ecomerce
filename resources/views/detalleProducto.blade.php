@@ -31,12 +31,20 @@
               <option value="Elegir">Acordar con el vendedor</option>
           </select>
 
-         @if (Auth::user()->id = $producto->id)
-             <a class="btn btn-warning btn-block" href="/editarProducto/{{$producto->id}}">Editar Publicacion</a>
-         @else
-            <p>
-                <a class="btn btn-warning btn-block" href="#">Comprar</a>
-            </p>
+         @if ($usuario == true)
+             @if ($usuario->id == $producto->usuario_id)
+                 <a class="btn btn-warning btn-block" href="/editarProducto/{{$producto->id}}">Editar Publicacion</a>
+             @else
+                 <form class="" action="/compra" method="post">
+                     @csrf
+                     <input type="hidden" name="productoid" value="{{$producto->id}}">
+                     <input type="hidden" name="usuarioid" value="{{$usuario->id}}">
+
+                     <button type="submit" name="button" class="btn btn-warning btn-block">Comprar</button>
+                 </form>
+             @endif
+             @else
+                 <a href="{{route('login')}}" class="btn btn-warning btn-block">Inicia sesion para comprar</a>
          @endif
 
           </div>
@@ -49,7 +57,7 @@
 <div class="row">
   <div class="product-block col-md-12">
       @if ($producto->descripcion == true)
-          <p>{{$producto->descripcion}}</p>
+          <h4>{{$producto->descripcion}}</h4>
           @else
           <h2>EL VENDEDOR NO HA DADO UNA DESCRIPCION</h2>
       @endif

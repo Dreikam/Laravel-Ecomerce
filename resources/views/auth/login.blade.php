@@ -47,8 +47,8 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <input type="button" id="b1" value="Mostrar contraseña" onclick="mostrar()">
-                                <input type="hidden" id="b2" value="Ocultar contraseña" onclick="ocultar()">
+                                <input type="button" class="btn btn-outline-secondary" id="b1" value="Mostrar contraseña" onclick="mostrar()">
+                                <input type="hidden" class="btn btn-outline-secondary" id="b2" value="Ocultar contraseña" onclick="ocultar()">
                                 <div class="form-group row">
                                     <div class="col-md-6 offset-md-4">
                                         <div class="form-check">

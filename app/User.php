@@ -36,4 +36,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function compraUser(){
+       return $this->belongsToMany("App\Producto", "compra", "usuario_id", "producto_id");
+     }
 }

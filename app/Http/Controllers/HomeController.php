@@ -34,7 +34,7 @@ class HomeController extends Controller
     }
 
     public function todasCategorias(){
-        $categorias = Categoria::all();
+        $categorias = Categoria::all()->paginate(6);
         return view('categorias', compact('categorias'));
     }
 

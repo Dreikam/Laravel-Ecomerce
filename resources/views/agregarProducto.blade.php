@@ -59,7 +59,5 @@ Bierful | Agregar Producto
 </div>
 </div>
 
-<script type="application/javascript" src="/js/detallefoto.js">
 
-</script>
 @endsection

@@ -15,7 +15,7 @@
 			<form class="nava" action="/buscar" method="get" name="buscar">
 
 					<input name="buscar" value="" class="form-control mr-sm-2" type="search" placeholder="Buscar un articulo..." aria-label="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+					<button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Buscar</button>
 				</form>
 
 		</nav>
