@@ -1,9 +1,10 @@
 @extends('layouts.principal')
+@section('titulo')
+    Bierful | Buscar
+@endsection
 
 @section('contenido')
 
-
-    <a href="/agregarProducto" class="btn btn-info">Agregar Producto</a>
     <section class="mt-3">
 
         <div class="container-fluid mt-3">

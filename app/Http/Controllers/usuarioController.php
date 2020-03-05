@@ -26,6 +26,9 @@ class usuarioController extends Controller
         $user = User::find($request->id);
         $userLog = Auth::user();
 
+        $ruta = $request->file('avatar')->store('public');
+        $avatar = basename($ruta);
+
         if ($request->avatar == false) {
             if ($userLog->avatar == false) {
                 $user->name = $request->name;
@@ -49,17 +52,6 @@ class usuarioController extends Controller
                 $user->avatar = $userLog->avatar;
             }
         } else {
-            if ($userLog->avatar == false) {
-                $user->name = $request->name;
-                $user->surname = $request->surname;
-                $user->email = $request->email;
-                $user->password = Hash::make($request['password']);
-                $user->encriptado = Crypt::encryptString($request->password);
-                $user->domicilio = $userLog->domicilio;
-                $user->celular = $userLog->celular;
-                $user->telefono = $userLog->telefono;
-                $user->avatar = NULL;
-            } else {
                 $user->name = $request->name;
                 $user->surname = $request->surname;
                 $user->email = $request->email;
@@ -69,7 +61,7 @@ class usuarioController extends Controller
                 $user->celular = $userLog->celular;
                 $user->telefono = $userLog->telefono;
                 $user->avatar = $request->avatar;
-            }
+
         }
 
 
@@ -84,6 +76,9 @@ class usuarioController extends Controller
         $user = User::find($request->id);
         $userLog = Auth::user();
         $contrasenia = Crypt::decryptString(Auth::user()->encriptado);
+
+        $ruta = $request->file('avatar')->store('public');
+        $avatar = basename($ruta);
 
 
         if ($userLog->avatar == false) {

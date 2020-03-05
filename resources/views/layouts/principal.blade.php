@@ -18,7 +18,7 @@
 	    <ul>
 
 	        <li><a href="{{route('index')}}"><span class="primero"> <i class="icon icon-home"></i> </span>Inicio</a></li>
-	        <li><a href="#"><span class="segundo"> <i class="icon icon-tags"></i> </span>Categorias</a></li>
+	        <li><a href="/Categorias"><span class="segundo"> <i class="icon icon-tags"></i> </span>Categorias</a></li>
 	        <li><a href="{{route('FAQ')}}"><span class="tercero"> <i class="icon icon-notification"></i> </span>Preguntas Frecuentes</a></li>
 	        <li><a href="{{route('perfil')}}"><span class="cuarto"> <i class="icon icon-profile"></i> </span>Perfil</a></li>
 			@if (Auth::user() == true)
@@ -43,12 +43,83 @@
 	</nav>
 	</div>
 
-	@yield('contenido')
+	<div class="mantener">
+		@yield('contenido')
+	</div>
 
-	<footer style="color:white">
-		tiene footer
+	<footer>
+
+		<div class="footer">
+
+			<div class="footer-content">
+				<div class="footer-section nosotros">
+					<h2> <span>Un poco sobre nosotros</span> </h2>
+
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor</p>
+				</div>
+
+				<div class="footer-section links">
+					<h2> <span>Nuestras Redes</span> </h2>
+					<div class="red">
+						<img src="/img/facebook.png" width="30px" alt="">
+						<a href="#">
+							<span>Siguenos en Facebook</span>
+						</a>
+					</div>
+
+					<div class="red">
+						<img src="/img/youtube.png" width="30px" alt="">
+						<a href="#">
+							<span>No olvides nuestros videos!</span>
+						</a>
+					</div>
+
+					<div class="red">
+						<img src="/img/twitter.png" width="30px" alt="">
+						<a href="#">
+							<span>No te pierdas nuestras noticias</span>
+						</a>
+					</div>
+
+					<div class="red">
+						<img src="/img/instagram.png" width="30px" alt="">
+						<a href="#">
+							<span>Siguenos en Instagram</span>
+						</a>
+					</div>
+				</div>
+
+				<div class="footer-section contacto">
+					<h2> <span>Contacto</span> </h2>
+					<div class="margenes telefono">
+						<img src="/img/whatsapp.png" alt="Contacto" width="30px;">
+						<span>+54 11 6718 5086 | </span>
+						<span>+54 11 5175 5331 | </span>
+						<span>+54 11 6859 6037</span>
+					</div>
+
+					<div class="margenes mail">
+						<img src="/img/carta.png" alt="" width="30px;">
+						<span>ProyectoBierful2020@gmail.com</span>
+					</div>
+
+					<div class="margenes direccion">
+						<img src="/img/casa.png" alt="" width="30px">
+						<span>Presidente Peron 4283, San Miguel, Buenos Aires, Argentina</span>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="footer-bottom">
+				<p>© Todos los Derechos Reservados 2020 | Bierful</p>
+			</div>
+
+		</div>
+
 	</footer>
 
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

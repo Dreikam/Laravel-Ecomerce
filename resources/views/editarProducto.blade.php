@@ -1,34 +1,49 @@
 @extends('layouts.principal')
 
 @section('contenido')
-  <h3>Editar Producto:</h3>
+<div class="formback">
+
+
+  <h3 class="centrado">Editar Producto:</h3>
 
   <form class="" action="/editarProducto" method="post" enctype="multipart/form-data">
     @csrf
     @method('PUT')
-    @foreach ($errors->all() as $error)
-      <li>{{$error}}</li>
-    @endforeach
+    <div class="text-danger" role="alert">
+        @foreach ($errors->all() as $error)
+        <li class="text-danger small">{{$error}}</li>
+        @endforeach
+    </div>
     <input type="hidden" name="id" value="{{$producto->id}}">
-    <div class="">
-      <label for="nombre">Nombre:</label>
-      <input type="text" name="nombre" value="{{$producto->nombre}}">
+
+    <div class="form-group col-sm-12 col-md-6">
+        <label class="control-label" for="nombre">Nombre</label>
+        <div class="">
+        <input name="nombre" type="text" class="form-control input-md" value="{{$producto->nombre}}">
+        </div>
     </div>
-    <div class="">
-      <label for="precio">Precio:</label>
-      <input type="number" name="precio" value="{{$producto->precio}}">
+
+         <div class="form-group col-sm-12 col-md-6">
+             <label class="control-label" for="precio">Precio</label>
+             <div class="">
+             <input name="precio" type="number" step="any" class="form-control input-md" value="{{$producto->precio}}">
+             </div>
+         </div>
+    <div class="col-sm-12 col-md-6">
+        <div class="row">
+                <label for="descripcion">Descripcion</label>
+        <textarea class="form-control" name="descripcion" rows="5" placeholder="{{$producto->descripcion}}" cols="20">{{$producto->descripcion}}</textarea>
+            </div>
+
+
     </div>
-    <div class="">
-      <label for="descripcion">Descripcion:</label>
-      <textarea name="descripcion" rows="8" cols="80" value="{{$producto->descripcion}}"></textarea>
-    </div>
-    <div class="">
-      <label for="nombre">Foto:</label>
+    <div class="centrado">
+      <label for="foto">Foto:</label>
       <input type="file" name="foto" value="">
     </div>
-    <div class="">
+    <div class="centrado">
       <button type="submit" name="button">Guardar Producto</button>
     </div>
   </form>
-
+</div>
 @endsection

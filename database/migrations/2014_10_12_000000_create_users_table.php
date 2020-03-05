@@ -32,7 +32,7 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->nullable();
             $table->string('encriptado');
             $table->string('pais');
-            $table->string('provincia');
+            $table->string('provincia')->nullable();
         });
     }
 

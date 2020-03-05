@@ -10,6 +10,7 @@
     <a href="/Administradores/crear" class="btn btn-info">Agregar usuario</a>
     <a href="/Administradores/nuevaCategoria" class="btn btn-info">Agregar categoria</a>
     <a href="{{route('login')}}" class="btn btn-danger">Home</a>
+    <a href="/Administradores/productos" class="btn btn-danger">productos</a>
     <table class="table table-striped">
         <thead>
             <th>ID</th>

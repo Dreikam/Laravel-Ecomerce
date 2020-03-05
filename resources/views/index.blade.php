@@ -2,19 +2,23 @@
 
 @section('contenido')
 
+
 	<div class="contenedor">
 		<header class="headerI">
 
 			<img src="img/logo_nav.png" alt="Logo">
-			<h2>Mercado de Cerveza Artesanal</h2>
+			<h2>El gran mercado de bebidas</h2>
 		</header>
 		<main class="mainI">
-			<form class="" action="" method="post">
-				<nav class="nava">
-						<input class="form-control mr-sm-2" type="search" placeholder="Buscar un articulo..." aria-label="Search">
-						<button class="btn btn-outline-success my-2 my-sm-0" type="button">Buscar</button>
-				</nav>
-			</form>
+		<nav class="">
+
+			<form class="nava" action="/buscar" method="get" name="buscar">
+
+					<input name="buscar" value="" class="form-control mr-sm-2" type="search" placeholder="Buscar un articulo..." aria-label="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+				</form>
+
+		</nav>
 
 			<section class="sectionI productos">
 				<figure class="figureI">

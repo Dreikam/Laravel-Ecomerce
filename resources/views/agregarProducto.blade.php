@@ -25,7 +25,7 @@ Bierful | Agregar Producto
     </div>
     <div class="productoPrecio">
       <label for="precio">Precio:</label>
-      <input type="number" name="precio" value="{{old('precio')}}">
+      <input type="number" step="any" name="precio" value="{{old('precio')}}">
     </div>
     <div class="productoCategoria">
       <label for="categoria">Categoria:</label>

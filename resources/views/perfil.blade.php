@@ -4,8 +4,8 @@
 
         <div style="background-color:white;" class="contenedorPrincipal">
             <div class="fotoPerfil">
-                @if (Auth::user()->avatar == true)
-                    <img src="/storage/{{Auth::user()->avatar}}" alt="">
+                @if ($user->avatar == true)
+                    <img src="/storage/{{$user->avatar}}" alt="">
                     @else
                     <img src="/img/sinfoto.png" alt="Sin foto">
                 @endif
@@ -26,6 +26,8 @@
                                 @method('PUT')
                                 <input type="hidden" name="id" value="{{$user->id}}">
                                 <div class="row">
+                                    <label for="avatar">Foto de perfil:</label>
+                                    <input type="file" accept="image/*" name="avatar" value="">
                                     <div class="col-sm-12 col-md-6 col-lg-8">
                                         <div class="row">
                                             <div class="col-sm-12 col-lg-6">
@@ -51,13 +53,13 @@
                                             </div>
                                             <div class="col-sm-12 col-lg-6">
                                                 <label class="col-form-label-sm" for="password">Contraseña:</label>
-                                                <input class="form-control" type="text" value="{{$desencriptado}}" name="password">
+                                                <input class="form-control" type="password" value="{{$desencriptado}}" name="password">
                                                 @if ($errors->password)
                                                 <p class="text-danger small">{{$errors->first('password')}}</p>
                                                 @endif
                                             </div>
                                             <div class="">
-                                                
+
                                             </div>
 
                                         </div>

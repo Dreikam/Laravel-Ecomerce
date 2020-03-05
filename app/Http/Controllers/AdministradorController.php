@@ -25,6 +25,11 @@ class AdministradorController extends Controller
         return view('admin.listadoAdmin', compact('usuarios'));
     }
 
+    public function prod(){
+        $prods = Producto::all();
+        return view('admin.adminproductos', compact('prods'));
+    }
+
     public function create(){
         return view('admin.userscreate');
     }

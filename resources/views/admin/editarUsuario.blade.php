@@ -11,7 +11,7 @@
         {{csrf_field()}}
         @method('PUT')
         <input type="hidden" name="id" value="{{$user->id}}">
-        {{$user->id}}
+
 
             <div class="form-group">
                 <label for="name">Nombre</label>

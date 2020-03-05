@@ -13,8 +13,14 @@ class ProductosController extends Controller
 
     public function index(){
       $user = Auth::user();
-      $productos = Producto::all()->where('usuario_id', 'like', $user['id']);
+      $productos = Producto::where('usuario_id', 'like', $user['id'])->paginate(6);
       return view('productos', compact('productos'));
+    }
+
+    public function busqueda(Request $request){
+        $input = $request->get('buscar');
+        $productos = Producto::where('nombre', 'LIKE', '%'.$input.'%')->paginate(6);
+        return view('busquedaProductos', compact('productos'));
     }
 
     public function formulario(){
@@ -33,9 +39,6 @@ class ProductosController extends Controller
 
         $this->validate($datos,$rules);
         $user = Auth::user();
-        $productoNuevo = new Producto();
-
-        $this->validate($datos, $rules);
 
         $ruta = $datos->file('foto')->store('public');
         $imagen = basename($ruta);
@@ -77,23 +80,32 @@ class ProductosController extends Controller
       $validaciones = [
         'id' => 'required',
         'nombre' => 'required|max:71',
-        'precio' => 'required|integer',
-        'descripcion' => 'max:153',
-        'foto' => 'required|file|image',
+        'precio' => 'required',
+        'descripcion' => 'max:255',
+        'foto' => 'file|image',
       ];
       // $mensajes = [];
 
       $this->validate($datos, $validaciones);
 
-      $ruta = $datos->file('foto')->store('public');
-      $imagen = basename($ruta);
+      if ($datos['foto'] == true) {
+          $ruta = $datos->file('foto')->store('public');
+          $imagen = basename($ruta);
+          $productoEditado = Producto::find($datos["id"]);
 
-      $productoEditado = Producto::find($datos["id"]);
+          $productoEditado->nombre = $datos['nombre'];
+          $productoEditado->precio = $datos['precio'];
+          $productoEditado->descripcion = $datos['descripcion'];
+          $productoEditado->foto = $imagen;
+      } else {
+          $productoEditado = Producto::find($datos["id"]);
 
-      $productoEditado->nombre = $datos['nombre'];
-      $productoEditado->precio = $datos['precio'];
-      $productoEditado->descripcion = $datos['descripcion'];
-      $productoEditado->foto = $imagen;
+          $productoEditado->nombre = $datos['nombre'];
+          $productoEditado->precio = $datos['precio'];
+          $productoEditado->descripcion = $datos['descripcion'];
+          $productoEditado->foto = $productoEditado->foto;
+      }
+
 
       $productoEditado->save();
 

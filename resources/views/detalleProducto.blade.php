@@ -7,7 +7,7 @@
   <div class="row">
       <div class="col-md-6">
           <div class="product-block product-image">
-              <img src="/storage/{{$producto->foto}}" alt="Imagen del producto">
+              <img class=" max-wi" src="/storage/{{$producto->foto}}" alt="Imagen del producto">
           </div>
       </div>
       <div class="col-md-6">
@@ -15,20 +15,29 @@
           <h3>{{$producto->nombre}}</h3><br>
 
           <div class="product-info panel">
-          <p>Precio: $ {{ number_format($producto->precio,2)}}</p>
-          <h4>Icono</h4>
-          <p>Pagá como mas te guste</p>
-          <span>Iconos</span> <br>
+          <p class="detalletexto">Precio: $ {{ number_format($producto->precio,2)}}</p>
+          <p class="detalletexto">Metodo de Pago:</p>
+
+         <img src="/img/tarjeta.png" alt="Tarjeta de pago" class="tarj">
+          <div class="">
+              <img class="iconopago" src="/img/visa.png" alt="Icono de pago">
+              <img class="iconopago" src="/img/mastercard.png" alt="Icono de pago">
+              <img class="iconopago" src="/img/mercadopago.png" alt="Icono de pago">
+          </div> <br>
           <a href="#">Mas informacion de pago</a>
           <h4>Tipo de envio:</h4>
-          <select class="" name="">
-              <option value="">Envialo!</option>
-              <option value="">Acordar con el vendedor</option>
+          <select class="" name="envio">
+              <option value="Enviar">Envialo!</option>
+              <option value="Elegir">Acordar con el vendedor</option>
           </select>
 
-          <p>
-              <a class="btn btn-warning btn-block" href="#">Comprar</a>
-          </p>
+         @if (Auth::user()->id = $producto->id)
+             <a class="btn btn-warning btn-block" href="/editarProducto/{{$producto->id}}">Editar Publicacion</a>
+         @else
+            <p>
+                <a class="btn btn-warning btn-block" href="#">Comprar</a>
+            </p>
+         @endif
 
           </div>
 
@@ -42,7 +51,7 @@
       @if ($producto->descripcion == true)
           <p>{{$producto->descripcion}}</p>
           @else
-          <p>El vendedor no hay publicado una descripcion</p>
+          <h2>EL VENDEDOR NO HA DADO UNA DESCRIPCION</h2>
       @endif
   </div>
   </div>
