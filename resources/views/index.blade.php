@@ -12,10 +12,10 @@
 		<main class="mainI">
 		<nav class="">
 
-			<form class="nava" action="/buscar" method="get" name="buscar">
+			<form id="formBuscar" class="nava" action="/buscar" method="get" name="buscar">
 
-					<input name="buscar" value="" class="form-control mr-sm-2" type="search" placeholder="Buscar un articulo..." aria-label="Search">
-					<button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Buscar</button>
+					<input id="inputbuscar" name="buscar" value="" class="form-control mr-sm-2" type="search" placeholder="Buscar un articulo..." aria-label="Search">
+					<button id="buscar" class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Buscar</button>
 				</form>
 
 		</nav>

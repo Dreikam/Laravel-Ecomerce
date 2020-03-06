@@ -11,6 +11,10 @@ class Producto extends Model
 
 
     public function compraProd(){
-       return $this->belongsToMany("App\User", "compra", "producto_id", "usuario_id");
+       return $this->belongsToMany("App\User", "compras", "producto_id", "usuario_id");
+     }
+
+     public function dueño(){
+         return $this->belongsTo('App\User', 'productos', 'usuario_id');
      }
 }

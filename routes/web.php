@@ -27,7 +27,7 @@ Route::put('/profile/datosContacto', "usuarioController@updateContactoUsuario");
 // Rutas de categorias
 Route::get('/Categorias', 'HomeController@todasCategorias')->name('categorias');
 
-Route::get('/Categorias/{id}', 'HomeController@detalleCategoria')->name('detallecategorias');
+Route::get('/Categorias/{id}', 'HomeController@detalleCategoria')->name('detallecategoria');
 
 // Ruta de autentificador
 Auth::routes();

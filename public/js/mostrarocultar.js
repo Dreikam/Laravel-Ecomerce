@@ -14,3 +14,15 @@ function ocultar() {
   $b2=document.getElementById("b1")
   $b2.type="button";
 }
+
+let formu = document.getElementById('formBuscar');
+let input = document.getElementById('inputbuscar');
+
+formu.addEventListener('submit', (e) => {
+    if (input.value == '' || input.value == false) {
+        e.preventDefault();
+    } else {
+        formu.submit;
+    }
+
+});

@@ -29,7 +29,7 @@
                                     <label for="avatar">Foto de perfil:</label>
                                     <div class="">
                                         <div id="divFileUpload">
-                                          <input id="file-upload" type="file" accept="image/*" name="avatar" required>
+                                          <input id="file-upload" type="file" accept="image/*" name="avatar">
                                         </div>
                                       <div id="divInputLoad">
                                             <div id="file-preview-zone">
@@ -116,26 +116,29 @@
                         </div>
 
                         <div role="tabpanel" class="tab-pane" id="seccion3">
-                            <h3>Historial de compra</h3>
 
-                            <table class="table table-striped">
-                                <thead>
-                                    <th>Foto del producto</th>
-                                    <th>Nombre del producto</th>
-                                    <th>Precio</th>
-                                    <th>Accion</th>
-                                </thead>
-                                <tbody>
-                                    {{-- @foreach ($productos as $producto)
-                                        <tr>
-                                            <td>{{$producto->foto}}</td>
-                                            <td>{{$producto->nombre}}</td>
-                                            <td>{{number_format($producto->precio,2)}}</td>
-                                            <a href="/detalleProducto/{{$producto->id}}" class="btn btn-outline-secondary">Ver Producto</a>
-                                        </tr>
-                                    @endforeach --}}
-                                </tbody>
-                            </table>
+                            @if ($user->compraUser == true)
+                                <table class="table table-striped">
+                                    <thead>
+                                        <th>Foto del producto</th>
+                                        <th>Nombre del producto</th>
+                                        <th>Precio</th>
+                                        <th>Accion</th>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($user->compraUser as $producto)
+                                            <tr>
+                                                <td class="tdfoto"> <img src="/storage/{{$producto->foto}}" alt=""> </td>
+                                                <td>{{$producto->nombre}}</td>
+                                                <td>{{number_format($producto->precio,2)}}</td>
+                                                <td><a href="/detalleProducto/{{$producto->id}}" class="btn btn-outline-secondary">Ver Producto</a></td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                @else
+                                    <h3>Aun no has comprado nada</h3>
+                            @endif
                         </div>
 
 

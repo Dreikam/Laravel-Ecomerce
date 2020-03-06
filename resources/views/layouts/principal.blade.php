@@ -43,9 +43,11 @@
 	</nav>
 	</div>
 
+
 	<div class="mantener">
 		@yield('contenido')
 	</div>
+
 
 	<footer>
 
@@ -62,28 +64,28 @@
 					<h2> <span>Nuestras Redes</span> </h2>
 					<div class="red">
 						<img src="/img/facebook.png" width="30px" alt="">
-						<a href="#">
+						<a href="https://www.facebook.com/Proyecto-Bierful-106354824315047">
 							<span>Siguenos en Facebook</span>
 						</a>
 					</div>
 
 					<div class="red">
 						<img src="/img/youtube.png" width="30px" alt="">
-						<a href="#">
+						<a href="https://www.youtube.com/channel/UCELDQPMBDUsp0uKmzUtRQ6w">
 							<span>No olvides nuestros videos!</span>
 						</a>
 					</div>
 
 					<div class="red">
 						<img src="/img/twitter.png" width="30px" alt="">
-						<a href="#">
+						<a href="https://twitter.com/PBierful">
 							<span>No te pierdas nuestras noticias</span>
 						</a>
 					</div>
 
 					<div class="red">
 						<img src="/img/instagram.png" width="30px" alt="">
-						<a href="#">
+						<a href="https://www.instagram.com/proyectobierful/">
 							<span>Siguenos en Instagram</span>
 						</a>
 					</div>
@@ -120,13 +122,16 @@
 	</footer>
 
 
-	<script type="application/javascript" src="/js/detallefoto.js"></script>	
-	<script src="/js/mostrarocultar.js" type="application/javascript"> </script>
-	<script src="/js/sweetalert2.js" type="application/javascript"> </script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script type="application/javascript" src="/js/detallefoto.js"></script>
+	<script src="/js/mostrarocultar.js" type="application/javascript"></script>
+	<script src="/js/swal.js" type="application/javascript"></script>
+	<script src="sweetalert2.all.min.js"></script>
+<!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 </body>
 </html>

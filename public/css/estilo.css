@@ -10,7 +10,7 @@ body{
   background-size: cover;
   max-width: 98%;
   margin: auto;
-  height: 100%
+  min-height: 100vh;
 }
 
 .login-box{
@@ -417,7 +417,7 @@ width:
 .barranav{
     width: 100%;
     overflow: hidden;
-    height: 150px;
+    height: 100px;
     position: relative;
 }
 
@@ -691,9 +691,13 @@ width:
 
 }
 
-.body-extends{
-    display: block;
+.mara{
+    margin-bottom: 10px;
+}
+
+.body-extends img{
     margin: auto;
+    display: flex;
 }
 
 .white {
@@ -702,6 +706,49 @@ width:
     border-radius: 25px;
 }
 
-.body-extends span{
+.body-extends span, .body-extends a{
     margin: 15px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.body-extends a{
+    color: #6c757d;
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    background: transparent;
+}
+
+.tablas{
+    background: white;
+    border-radius: 10px;
+}
+
+.tdfoto img{
+    width: 100px;
+    border-radius: 0px;
+}
+
+.dark{
+    background: url("../img/bg-default.jpg");
+}
+
+.dark .navI ul li a .primero{
+    background: #A2B770
+}
+
+.dark .navI ul li a .segundo{
+    background: #AF8819
+}
+
+.dark .navI ul li a .tercero{
+    background: #417F98;
+}
+
+.dark .navI ul li a .cuarto{
+    background: #6F08EA;
+}
+
+.dark .navI ul li a .quinto{
+    background: #C82B26;
 }

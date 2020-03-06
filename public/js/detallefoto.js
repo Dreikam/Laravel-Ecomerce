@@ -8,7 +8,7 @@ window.onload = function(){
                     var filePreview = document.createElement('img');
                     filePreview.id = 'file-preview';
                     filePreview.src = e.target.result;
-                    console.log(e.target.result);
+                    //console.log(e.target.result);
 
                     var previewZone = document.getElementById('file-preview-zone');
                     previewZone.appendChild(filePreview);

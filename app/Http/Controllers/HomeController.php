@@ -34,14 +34,14 @@ class HomeController extends Controller
     }
 
     public function todasCategorias(){
-        $categorias = Categoria::all()->paginate(6);
+        $categorias = Categoria::paginate(6);
         return view('categorias', compact('categorias'));
     }
 
     public function detalleCategoria($id){
-        $categoria = Categoria::find($id);
-        $productoCategoria = Producto::all()->where('categoria_id', 'like', $id);
-        return view('detallecategorias', compact('categoria', 'productoCategoria'));
+        $categorias = Categoria::find($id);
+        $productoCategoria = Producto::where('categoria_id', 'like', $categorias->id)->paginate(6);
+        return view('detallecategoria', compact('productoCategoria'));
     }
 
 }

@@ -38,6 +38,7 @@ class User extends Authenticatable
     ];
 
     public function compraUser(){
-       return $this->belongsToMany("App\Producto", "compra", "usuario_id", "producto_id");
+       return $this->belongsToMany("App\Producto", "compras", "usuario_id", "producto_id");
      }
+
 }

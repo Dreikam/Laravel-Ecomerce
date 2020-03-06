@@ -35,7 +35,7 @@ class usuarioController extends Controller
 
         $compra->save();
 
-        return view('comprado', compact('usuario', 'producto'));
+        return view('index');
     }
 
     public function updateDatosUsuario(Request $request){

@@ -26,7 +26,7 @@
           </div> <br>
           <a href="#">Mas informacion de pago</a>
           <h4>Tipo de envio:</h4>
-          <select class="" name="envio">
+          <select class="btn btn-outline-secondary mara" name="envio">
               <option value="Enviar">Envialo!</option>
               <option value="Elegir">Acordar con el vendedor</option>
           </select>
@@ -40,7 +40,7 @@
                      <input type="hidden" name="productoid" value="{{$producto->id}}">
                      <input type="hidden" name="usuarioid" value="{{$usuario->id}}">
 
-                     <button type="submit" name="button" class="btn btn-warning btn-block">Comprar</button>
+                     <button type="submit" name="button" class="btn btn-warning btn-block" id="compra">Comprar</button>
                  </form>
              @endif
              @else
