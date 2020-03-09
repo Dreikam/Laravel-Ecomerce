@@ -20,8 +20,8 @@ class CreateProductosTable extends Migration
             $table->text('descripcion');
             $table->string('foto');
             $table->timestamps();
-            $table->bigIncrements('usuario_id');
-            $table->bigIncrements('categoria_id');
+            $table->integer('usuario_id');
+            $table->integer('categoria_id');
 
             // :'C
         });
